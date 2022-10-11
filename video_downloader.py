@@ -18,6 +18,8 @@ soup = BeautifulSoup(yt_site, "lxml")
 
 # pattern = 'href="watch\S+'
 
+# pattern = 'index\S+'
+
 pattern = 'index\S+'
 
 results = re.findall(pattern, str(soup.prettify()))
@@ -25,6 +27,12 @@ results = re.findall(pattern, str(soup.prettify()))
 
 for result in results:
     print()
-    print(result)
-    print('------------------')
-    print()
+    if '"webCommandMetadata":' in result:
+        # print(str(result))
+        print('------------------')
+        print()
+        pattern_inner = 'url\S+'
+        link = re.findall(pattern_inner, str(result))
+        print(link[0][6:84])
+        print('------------------')
+        print()
