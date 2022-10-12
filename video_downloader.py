@@ -24,7 +24,9 @@ pattern = 'index\S+'
 
 results = re.findall(pattern, str(soup.prettify()))
 
-
+youtube_links = []
+# regular expressions only works in string
+#take out only the youtube links from script tag
 for result in results:
     print()
     if '"webCommandMetadata":' in result:
@@ -33,6 +35,35 @@ for result in results:
         print()
         pattern_inner = 'url\S+'
         link = re.findall(pattern_inner, str(result))
-        print(link[0][6:84])
+        print(link[0][6:85])
+        full_link = 'https://www.youtube.com' + link[0][6:85]
+        youtube_links.append(full_link)
+
         print('------------------')
         print()
+
+
+from pytube import YouTube
+
+# modifying the link to match the youtube link
+# use full link starting from http to get the requests
+for i, link in enumerate(youtube_links):
+    modified_link = link[:44]
+    my_video = YouTube(modified_link)
+    my_video = my_video.streams.get_highest_resolution()
+    my_video.download()
+    print(modified_link)
+    try:
+        print(requests.get(modified_link), i)
+    except:
+        print('failed')
+
+    
+
+
+
+
+
+
+
+
