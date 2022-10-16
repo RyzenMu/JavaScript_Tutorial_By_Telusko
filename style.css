@@ -1,0 +1,9 @@
+.first-row {
+    display: flex;
+    
+    gap : 10px;
+}
+
+video {
+    border: 10px solid orangered;
+}
