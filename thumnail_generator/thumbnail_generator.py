@@ -1,11 +1,4 @@
-# import os
-
-# list_dir = os.listdir()
-
-# for filename in list_dir:
-#     if 'mp4' in filename:
-#         print(filename)
-
+import os
 from turtle import *
 import turtle
 from tkinter import *
@@ -13,19 +6,25 @@ from PIL import *
 import PIL.Image
 from PIL import Image
 
-turtle.color('deep pink')
-turtle.write('0-introduction', font=('verdana', 100, 'normal'), align='center')
+list_dir = os.listdir()
 
-ts = turtle.getscreen()
-ts.getcanvas().postscript(file="0-intoduction.eps")
-# turtle.Screen().exitonclick()
+for filename in list_dir:
+    if 'mp4' in filename:
+        print(filename)
+        turtle.color('black')
+        turtle.write(filename, font=('verdana', 100, 'normal'), align='center')
 
-image = Image.open('0-intoduction.eps')
-# image.show()
+        ts = turtle.getscreen()
+        # ts.getcanvas().postscript(file="0-intoduction.eps")
+        ts.getcanvas().postscript(file=filename)
+        # turtle.Screen().exitonclick()
 
-rgb_image = image.convert('RGB')
+        image = Image.open(filename)
+        # image.show()
 
-rgb_image.save('0-intoduction.png')
+        rgb_image = image.convert('RGB')
+
+        rgb_image.save(filename+'.png')
 
 
 
