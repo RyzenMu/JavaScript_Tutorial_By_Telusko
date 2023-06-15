@@ -12,7 +12,7 @@ soup = BeautifulSoup(yt_site, "lxml")
 
 # pattern = 'https://\S+'
 
-# pattern = 'Telusko'
+# pattern = 'Teluskoo'
 
 # pattern = 'www.youtube.com/watch\S+'
 
