@@ -14,7 +14,7 @@ const files = fs.readdirSync('/media/a/719c6d20-e2dd-4446-a15a-421ae8936f12/home
 //    document.write('hello')
 // }
 
-document.write('Hello World - 14/10/2022')
+document.write('Hello Worldd - 14/10/2022')
 
 for (let i = 0; i <= 5; i++) 
 {
